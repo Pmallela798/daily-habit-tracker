@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress for {{ habit.name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .streak {
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 400px;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Progress for {{ habit.name }}</h1>
+    <p>Streak: <span class="streak">{{ streak }} days</span></p>
+    <ul>
+        {% for record in progress %}
+            <li>{{ record.date }} - {% if record.completed %} Completed {% else %} Not Completed {% endif %}</li>
+        {% endfor %}
+    </ul>
+    <div class="chart-container">
+        <canvas id="progressChart"></canvas>
+    </div>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('progressChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [ {% for record in progress %} "{{ record.date }}", {% endfor %} ],
+                datasets: [{
+                    label: 'Habit Completion',
+                    data: [ {% for record in progress %} {{ record.completed|int }}, {% endfor %} ],
+                    borderColor: '#4CAF50',
+                    fill: false
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
