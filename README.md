@@ -40,7 +40,7 @@ Clone the Project from GitHub
 
 Open your terminal (or Command Prompt) and run the following command to clone the repository:
 
-git clone https://github.com/pmallela798/habit-tracker.git
+git clone  https://github.com/Pmallela798/daily-habit-tracker
 
 Then navigate to the project directory:
 
