@@ -52,5 +52,9 @@ pip install-r requiremnts.txt
 
 Run the Application
 
-python 
+python habit_tracker.py 
+
+This will launch the application at:http://127.0.0.1:5000
+
+Open your browser and go to http://127.0.0.1:5000 to start using the Habit Tracker. You can now add habits, track progress, view reminders, and more.
 
