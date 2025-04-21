@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: url("{{ url_for('static', filename='images/log.jpeg') }}") no-repeat center center fixed;
+            background-size: cover; /* Ensure the background covers the entire page */
+            color: white; /* Ensures the text is readable against the background */
+        }
+
+        h1 {
+            color: #fff; /* White text for the header */
+        }
+
+        label {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #fff; /* White color for labels */
+        }
+
+        select, input[type="text"], textarea {
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            width: 100%;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.7);  /* Light background for inputs */
+            color: #333;  /* Dark text color inside inputs */
+            border: 1px solid #ccc; /* Add border for better visibility */
+        }
+
+        select {
+            background-color: rgba(255, 255, 255, 0.7);  /* Light background to contrast with dark text */
+            color: #333;  /* Dark text color */
+            border: 1px solid #ccc; /* Light border to make the dropdown visible */
+        }
+
+        select:focus {
+            border-color: #4CAF50; /* Green border on focus */
+            outline: none;
+        }
+
+        /* Style the dropdown options */
+        option {
+            background-color: #fff;  /* White background for options */
+            color: #333;  /* Dark text color for options */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background for readability */
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        label, select, textarea {
+            color: white; /* Ensure form fields' text is readable */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Log Progress</h1>
+        
+        <form action="{{ url_for('log_progress') }}" method="POST">
+            <label for="habit_id">Select Habit:</label>
+            <select id="habit_id" name="habit_id" required>
+                {% for habit in habits %}
+                    <option value="{{ habit.id }}">{{ habit.name }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label for="completed">Completed today?</label><br>
+            <select id="completed" name="completed">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select><br><br>
+
+            <label for="notes">Additional Notes:</label><br>
+            <textarea id="notes" name="notes"></textarea><br><br>
+
+            <input type="submit" value="Log Progress">
+        </form>
+    </div>
+</body>
+</html>

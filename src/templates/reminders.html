@@ -1,0 +1,83 @@
+<!-- templates/reminders.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Today's Reminders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='images/remainder.jpeg') }}") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #ecf0f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 5px solid #2980b9;
+            font-size: 18px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Today's Habit Reminders</h1>
+        {% if habits %}
+            <ul>
+                {% for habit in habits %}
+                    <li>{{ habit.name }} is due today!</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No reminders for today. You're all caught up!</p>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="{{ url_for('index') }}">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

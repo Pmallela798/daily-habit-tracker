@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Habits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='images/recommendation.jpeg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* slight transparency */
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            padding-top: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        strong {
+            color: #007bff;
+            font-size: 1.2em;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #fff;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Habits</h1>
+        <ul>
+            <li><strong>Drink 8 glasses of water</strong><br>Description: Stay hydrated by drinking 8 glasses of water a day.</li>
+            <li><strong>Meditate for 10 minutes</strong><br>Description: Spend 10 minutes each day to meditate and relax.</li>
+            <li><strong>Go for a 30-minute walk</strong><br>Description: Take a 30-minute walk every day to improve your health.</li>
+            <li><strong>Read for 15 minutes every day</strong><br>Description: Set aside 15 minutes each day to read a book.</li>
+            <li><strong>Track your daily calories</strong><br>Description: Log your daily food intake and track calories.</li>
+            <li><strong>Practice gratitude journaling</strong><br>Description: Write 3 things you are grateful for each day.</li>
+            <li><strong>Sleep at least 7 hours</strong><br>Description: Ensure you sleep for at least 7 hours each night.</li>
+            <li><strong>Limit screen time to 2 hours</strong><br>Description: Reduce your screen time to no more than 2 hours a day.</li>
+            <li><strong>Journal for 10 minutes every day</strong><br>Description: Spend 10 minutes writing down your thoughts and reflections.</li>
+            <li><strong>Plan your day the night before</strong><br>Description: Prepare your to-do list the night before to start the day with clarity.</li>
+        </ul>
+        <a href="{{ url_for('index') }}">Back to Index Page</a>
+    </div>
+</body>
+</html>
