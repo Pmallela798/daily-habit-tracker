@@ -44,10 +44,14 @@ git clone  https://github.com/Pmallela798/daily-habit-tracker
 
 Then navigate to the project directory:
 
+cd daily-habit-tracker
+
+cd src
 
 Install Required Packages
 
 pip install -r requirements.txt
+
 
 cd daily-habit-tracker
 
