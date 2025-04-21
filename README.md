@@ -27,3 +27,30 @@ SQLite: A lightweight relational database used to store habit and progress data.
 Jinja2: Templating engine for rendering HTML pages.
 
 Bootstrap: (Potentially used in templates) for creating responsive and clean user interfaces.
+
+Setup Instructions
+
+Make sure Python 3.7 or higher is installed on your system. You can download it from the official site: https://www.python.org/downloads/.
+
+To check if Python is installed, run:
+
+python --version
+
+Clone the Project from GitHub
+
+Open your terminal (or Command Prompt) and run the following command to clone the repository:
+
+git clone https://github.com/pmallela798/habit-tracker.git
+
+Then navigate to the project directory:
+
+cd src
+
+Install Required Packages
+
+pip install-r requiremnts.txt
+
+Run the Application
+
+python 
+
